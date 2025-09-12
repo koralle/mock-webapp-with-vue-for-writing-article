@@ -1,4 +1,5 @@
 ls:
+  .*: kebab-case
 
 ignore:
   - .git
