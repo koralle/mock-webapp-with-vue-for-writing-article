@@ -10,7 +10,9 @@
     "lint:ls-lint": "ls-lint --config .ls-lint.yaml",
     "format:check": "prettier . --check",
     "format:fix": "prettier . --write",
-    "format": "pnpm run format:fix"
+    "format": "pnpm run format:fix",
+    "typecheck:app": "vue-tsc -p tsconfig.app.json",
+    "typecheck:node": "vue-tsc -p tsconfig.node.json"
   },
   "dependencies": {
     "vue": "^3.5.18"
