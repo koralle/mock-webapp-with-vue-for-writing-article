@@ -3,3 +3,12 @@ pre-commit:
     - name: ls-lint
       run: |
         pnpm run lint:ls-lint
+
+    - name: lint (excluding `ls-lint`)
+      group:
+        piped: true
+        jobs:
+          - name: Prettier
+            run: |
+              pnpm prettier {staged_files} --write
+            stage_fixed: true
