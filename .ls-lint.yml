@@ -1,5 +1,6 @@
 ls:
   .*: kebab-case
+  .vue: PascalCase
 
 ignore:
   - .git
