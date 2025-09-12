@@ -4,6 +4,10 @@ pre-commit:
       run: |
         pnpm run lint:ls-lint
 
+    - name: Typecheck
+      run: |
+        pnpm vue-tsc -p tsconfig.json
+
     - name: lint (excluding `ls-lint`)
       group:
         piped: true
