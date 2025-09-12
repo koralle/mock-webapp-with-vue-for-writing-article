@@ -13,13 +13,24 @@
     "moduleDetection": "force",
     "noEmit": true,
 
-    /* Linting */
+    /* Derived from `@tsconfig/strictest` */
     "strict": true,
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+
+    "isolatedModules": true,
+
+    "checkJs": true,
+
+    "esModuleInterop": true
   },
   "include": ["vite.config.ts"]
 }
