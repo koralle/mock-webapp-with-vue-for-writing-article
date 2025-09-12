@@ -1,0 +1,8 @@
+ls:
+  .*: kebab-case
+  .vue: PascalCase
+
+ignore:
+  - README.md
+  - .git
+  - node_modules
