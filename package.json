@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "@ls-lint/ls-lint": "^2.3.1",
+    "@prettier/plugin-oxc": "^0.0.4",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/tsconfig": "^0.7.0",
     "lefthook": "^1.13.0",
