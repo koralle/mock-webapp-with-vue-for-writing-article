@@ -1,0 +1,5 @@
+pre-commit:
+  jobs:
+    - name: ls-lint
+      run: |
+        pnpm run lint:ls-lint
