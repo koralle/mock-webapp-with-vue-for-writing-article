@@ -7,5 +7,23 @@ export default {
   semi: true,
   singleQuote: true,
   singleAttributePerLine: true,
-  trailingComma: 'none'
+  trailingComma: 'none',
+
+  // overrides
+  overrides: [
+    {
+      files: ['**/*.{js,mjs,cjs,jsx}'],
+      options: {
+        plugins: ['@prettier/plugin-oxc'],
+        parser: 'oxc'
+      }
+    },
+    {
+      files: ['**/*.{ts,mts,cts,tsx}'],
+      options: {
+        plugins: ['@prettier/plugin-oxc'],
+        parser: 'oxc-ts'
+      }
+    }
+  ]
 };
