@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
+
       - name: Cache and Install
         uses: ./.github/composite-actions/cache-and-install
 
@@ -24,6 +27,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
+
       - name: Cache and Install
         uses: ./.github/composite-actions/cache-and-install
 
@@ -35,6 +41,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
+
       - name: Cache and Install
         uses: ./.github/composite-actions/cache-and-install
 
@@ -46,6 +55,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
+
       - name: Cache and Install
         uses: ./.github/composite-actions/cache-and-install
 
