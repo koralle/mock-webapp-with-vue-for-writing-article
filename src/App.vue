@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-
-const value = ref('');
+import { RouterView } from 'vue-router';
 </script>
 
 <template>
   <UApp>
-    <UInput v-model="value" />
+    <RouterView />
   </UApp>
 </template>

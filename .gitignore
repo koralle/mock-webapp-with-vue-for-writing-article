@@ -26,3 +26,6 @@ dist-ssr
 # Nuxt UI
 auto-imports.d.ts
 components.d.ts
+
+# unplugin-vue-router
+typed-router.d.ts
