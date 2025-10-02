@@ -16,11 +16,17 @@
     "typecheck:node": "vue-tsc -p tsconfig.node.json"
   },
   "dependencies": {
-    "vue": "^3.5.18"
+    "@nuxt/ui": "^4.0.0",
+    "@unhead/vue": "^2.0.17",
+    "kiso.css": "^1.2.2",
+    "tailwindcss": "^4.1.14",
+    "vue": "^3.5.18",
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@ls-lint/ls-lint": "^2.3.1",
     "@prettier/plugin-oxc": "^0.0.4",
+    "@tailwindcss/vite": "^4.1.14",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/tsconfig": "^0.7.0",
     "lefthook": "^1.13.0",
