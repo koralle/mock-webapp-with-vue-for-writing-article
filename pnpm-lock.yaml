@@ -14,6 +14,9 @@ importers:
       '@unhead/vue':
         specifier: ^2.0.17
         version: 2.0.17(vue@3.5.21(typescript@5.8.3))
+      kiso.css:
+        specifier: ^1.2.2
+        version: 1.2.2
       tailwindcss:
         specifier: ^4.1.14
         version: 4.1.14
@@ -1303,6 +1306,9 @@ packages:
 
   json-schema@0.4.0:
     resolution: {integrity: sha512-es94M3nTIfsEPisRafak+HDLfHXnKBhV3vU5eqPcS3flIWqcxJWgXHXiey3YrpaNsanY5ei1VoYEbOzijuq9BA==}
+
+  kiso.css@1.2.2:
+    resolution: {integrity: sha512-lv5pmbiqfov6DRUnHmtqEit5DzAtFAtKL+Pw0X2cBHtq/fBmXkVe+DAFnTdvawuA8f3vly7yaLLha0nAMlSz5A==}
 
   klona@2.0.6:
     resolution: {integrity: sha512-dhG34DXATL5hSxJbIexCft8FChFXtmskoZYnoPWjXQuebWYCNkVeV3KkGegCK9CP1oswI/vQibS2GY7Em/sJJA==}
@@ -3228,6 +3234,8 @@ snapshots:
   js-tokens@9.0.1: {}
 
   json-schema@0.4.0: {}
+
+  kiso.css@1.2.2: {}
 
   klona@2.0.6: {}
 
