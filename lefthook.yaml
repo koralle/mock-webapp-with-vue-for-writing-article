@@ -10,6 +10,8 @@ pre-commit:
         pnpm vue-tsc -p tsconfig.json
 
     - name: lint (excluding `ls-lint`)
+      exclude:
+        - '.gitignore'
       group:
         piped: true
         jobs:
