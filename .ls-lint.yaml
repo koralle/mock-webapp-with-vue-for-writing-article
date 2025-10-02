@@ -1,6 +1,8 @@
 ls:
   .*: kebab-case
   .vue: PascalCase
+  src/pages:
+    .vue: kebab-case
 
 ignore:
   - README.md
