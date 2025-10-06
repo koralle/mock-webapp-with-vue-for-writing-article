@@ -13,7 +13,7 @@ const loginSchema = z.object({
 
 type LoginSchema = z.output<typeof loginSchema>;
 
-const state = reactive<Partial<LoginSchema>>({
+const state = reactive<LoginSchema>({
   email: '',
   password: ''
 });
@@ -50,7 +50,7 @@ async function onSubmit(_: FormSubmitEvent<LoginSchema>) {
             class="w-[stretch]"
             size="lg"
             required
-            v-model="state.email ?? ''"
+            v-model="state.email"
           />
         </UFormField>
 
@@ -66,7 +66,7 @@ async function onSubmit(_: FormSubmitEvent<LoginSchema>) {
             size="lg"
             type="password"
             required
-            v-model="state.password ?? ''"
+            v-model="state.password"
           />
         </UFormField>
 
