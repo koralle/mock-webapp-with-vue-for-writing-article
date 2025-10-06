@@ -47,7 +47,7 @@ jobs:
       - name: Cache and Install
         uses: ./.github/composite-actions/cache-and-install
 
-      - name: Build
+      - name: Generate Declaration Files
         run: |
           pnpm run build-only
 
@@ -65,7 +65,7 @@ jobs:
       - name: Cache and Install
         uses: ./.github/composite-actions/cache-and-install
 
-      - name: Build
+      - name: Generate Declaration Files
         run: |
           pnpm run build-only
 
