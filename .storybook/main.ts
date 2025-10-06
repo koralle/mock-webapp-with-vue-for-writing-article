@@ -5,7 +5,9 @@ const config: StorybookConfig = {
   addons: ['@chromatic-com/storybook', '@storybook/addon-docs', '@storybook/addon-a11y', '@storybook/addon-vitest'],
   framework: {
     name: '@storybook/vue3-vite',
-    options: {}
+    options: {
+      viteConfigPath: 'vite.config.mts'
+    }
   }
 };
 export default config;
