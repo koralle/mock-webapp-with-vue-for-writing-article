@@ -47,6 +47,10 @@ jobs:
       - name: Cache and Install
         uses: ./.github/composite-actions/cache-and-install
 
+      - name: Build
+        run: |
+          pnpm run build-only
+
       - name: Typecheck (app)
         run: |
           pnpm run typecheck:app
@@ -60,6 +64,10 @@ jobs:
 
       - name: Cache and Install
         uses: ./.github/composite-actions/cache-and-install
+
+      - name: Build
+        run: |
+          pnpm run build-only
 
       - name: Typecheck (node)
         run: |
