@@ -8,3 +8,5 @@ ignore:
   - README.md
   - .git
   - node_modules
+  - src/layout.vue
+  - dist
