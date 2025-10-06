@@ -13,14 +13,14 @@ const loginSchema = z.object({
 
 type LoginSchema = z.output<typeof loginSchema>;
 
-const state = reactive<Partial<Schema>>({
-  email: undefined,
-  password: undefined
+const state = reactive<Partial<LoginSchema>>({
+  email: '',
+  password: ''
 });
 
 const toast = useToast();
 
-async function onSubmit(event: FormSubmitEvent<Schema>) {
+async function onSubmit(_: FormSubmitEvent<LoginSchema>) {
   toast.add({
     title: 'ログイン成功',
     description: 'フォームの値が送信できました。',
@@ -50,7 +50,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
             class="w-[stretch]"
             size="lg"
             required
-            v-model="state.email"
+            v-model="state.email ?? ''"
           />
         </UFormField>
 
@@ -66,7 +66,7 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
             size="lg"
             type="password"
             required
-            v-model="state.password"
+            v-model="state.password ?? ''"
           />
         </UFormField>
 
