@@ -30,26 +30,9 @@ const GitHubIcon = () =>
 </script>
 
 <template>
-  <UHeader>
-    <template #title> サンプルアプリケーション </template>
-
-    <template #right>
-      <UButton
-        color="neutral"
-        variant="outline"
-        :icon="GitHubIcon"
-        to="https://github.com/koralle/mock-webapp-with-vue-for-writing-article"
-      />
-
-      <UColorModeSelect />
-    </template>
-  </UHeader>
-
-  <UMain>
+  <UMain class="grid place-content-center">
     <UContainer>
       <slot />
     </UContainer>
   </UMain>
-
-  <UFooter> Copyright &copy; koralle 2025 </UFooter>
 </template>
