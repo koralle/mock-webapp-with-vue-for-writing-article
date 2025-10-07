@@ -13,7 +13,7 @@ import { useId } from 'vue';
 
 const { id = useId(), name, required = false, invalid = false, type = 'text' } = defineProps<InputProps>();
 
-const model = defineModel<string>();
+const model = defineModel<string | undefined>();
 </script>
 
 <template>
