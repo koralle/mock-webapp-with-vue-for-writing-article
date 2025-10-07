@@ -72,3 +72,25 @@ jobs:
       - name: Typecheck (node)
         run: |
           pnpm run typecheck:node
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
+
+      - name: Cache and Install
+        uses: ./.github/composite-actions/cache-and-install
+
+      - name: Setup Environment Variables
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=${HOME}/pw-browsers" >> "${GITHUB_ENV}"
+
+      - name: Install Playwright Browsers
+        uses: ./.github/composite-actions/setup-playwright
+        with:
+          playwright-browsers-path: ${{ env.PLAYWRIGHT_BROWSERS_PATH }}
+
+      - name: Test
+        run: |
+          pnpm run test:run
