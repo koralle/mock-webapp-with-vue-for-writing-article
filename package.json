@@ -16,7 +16,10 @@
     "typecheck:app": "vue-tsc -p tsconfig.app.json",
     "typecheck:node": "vue-tsc -p tsconfig.node.json",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test:run": "vitest --run",
+    "test:watch": "vitest --watch",
+    "test": "pnpm run test:watch"
   },
   "dependencies": {
     "@nuxt/ui": "^4.0.0",
