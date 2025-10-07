@@ -2,7 +2,6 @@
 import * as z from 'zod';
 import Button from '../components/Button.vue';
 import Input from '../components/Input.vue';
-import Card from '../components/Card.vue';
 import { useForm } from 'vee-validate';
 import { toTypedSchema } from '@vee-validate/zod';
 import { ref, useId } from 'vue';
@@ -17,16 +16,14 @@ const loginSchema = z.object({
     .regex(/^[a-zA-Z0-9]+$/, 'パスワードは半角英数字で入力してください。')
 });
 
-type LoginSchema = z.output<typeof loginSchema>;
-
-const { defineField, errors, values, handleSubmit } = useForm({
+const { defineField, errors, handleSubmit } = useForm({
   validationSchema: toTypedSchema(loginSchema)
 });
 
 const [email, emailAttrs] = defineField('email');
 const [password, passwordAttrs] = defineField('password');
 
-const onSubmit = handleSubmit((values) => {
+const onSubmit = handleSubmit(() => {
   hasCompletedSubmit.value = true;
 });
 

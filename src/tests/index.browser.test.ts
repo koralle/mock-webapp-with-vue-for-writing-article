@@ -1,7 +1,7 @@
 import { composeStories } from '@storybook/vue3-vite';
 import { page, userEvent } from '@vitest/browser/context';
 
-import * as LoginPageStories from '../stories/login.stories';
+import * as LoginPageStories from '../stories/index.stories';
 
 import { render } from 'vitest-browser-vue';
 
