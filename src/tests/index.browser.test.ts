@@ -36,18 +36,18 @@ describe('LoginPage', () => {
     });
   });
 
-  describe('`初期表示`Storyに対するテスト', () => {
+  describe('`不正なメールアドレス`Storyに対するテスト', () => {
     const { InvalidEmail } = composedStories;
 
-    test('画面が正しくレンダリングされていること', async () => {
+    test('「メールアドレス」フィールドが無効な入力となり、エラーメッセージが表示されること', async () => {
       await InvalidEmail.run();
 
       const emailInput = page.getByRole('textbox', { name: 'メールアドレス' });
       await expect.element(emailInput).toBeVisible();
       await expect.element(emailInput).toBeInvalid();
 
-      const passwordInput = page.getByLabelText('パスワード');
-      await expect.element(passwordInput).toBeVisible();
+      const errorMessage = page.getByText('有効なメールアドレスを入力してください。');
+      await expect.element(errorMessage).toBeVisible();
     });
   });
 });
