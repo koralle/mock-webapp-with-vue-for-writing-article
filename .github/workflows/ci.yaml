@@ -83,9 +83,13 @@ jobs:
       - name: Cache and Install
         uses: ./.github/composite-actions/cache-and-install
 
+      - name: Setup Environment Variables
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=${HOME}/pw-browsers" >> "${GITHUB_ENV}"
+
       - name: Install Playwright Browsers
-        run: |
-          pnpm playwright install --with-deps
+        uses: ./.github/composite-actions/setup-playwright
+        with:
+          playwright-browsers-path: ${{ env.PLAYWRIGHT_BROWSERS_PATH }}
 
       - name: Test
         run: |
