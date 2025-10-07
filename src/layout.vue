@@ -1,9 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Card from './components/Card.vue';
+</script>
 
 <template>
-  <UMain class="grid place-content-center">
-    <UContainer>
+  <main class="grid place-content-center w-[100svi] min-h-[100svb]">
+    <Card>
       <slot />
-    </UContainer>
-  </UMain>
+    </Card>
+  </main>
 </template>
