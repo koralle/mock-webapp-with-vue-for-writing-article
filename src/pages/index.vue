@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import * as z from 'zod';
-import type { FormSubmitEvent } from '@nuxt/ui';
-import { reactive } from 'vue';
+import Button from '../components/Button.vue';
+import Input from '../components/Input.vue';
+import { useForm } from 'vee-validate';
+import { toTypedSchema } from '@vee-validate/zod';
+import { ref, useId } from 'vue';
+
+const hasCompletedSubmit = ref(false);
 
 const loginSchema = z.object({
   email: z.email('有効なメールアドレスを入力してください。'),
@@ -11,73 +16,70 @@ const loginSchema = z.object({
     .regex(/^[a-zA-Z0-9]+$/, 'パスワードは半角英数字で入力してください。')
 });
 
-type LoginSchema = z.output<typeof loginSchema>;
-
-const state = reactive<LoginSchema>({
-  email: '',
-  password: ''
+const { defineField, errors, handleSubmit } = useForm({
+  validationSchema: toTypedSchema(loginSchema)
 });
 
-const toast = useToast();
+const [email, emailAttrs] = defineField('email');
+const [password, passwordAttrs] = defineField('password');
 
-async function onSubmit(_: FormSubmitEvent<LoginSchema>) {
-  toast.add({
-    title: 'ログイン成功',
-    description: 'フォームの値が送信できました。',
-    color: 'success',
-    progress: false
-  });
-}
+const onSubmit = handleSubmit(() => {
+  hasCompletedSubmit.value = true;
+});
+
+const emailId = useId();
+const passwordId = useId();
 </script>
 
 <template>
-  <UPage class="grid place-content-center">
-    <UPageCard title="ログイン">
-      <UForm
-        class="grid gap-6"
-        :schema="loginSchema"
-        :state="state"
-        @submit="onSubmit"
+  <form
+    class="grid gap-10"
+    @submit="onSubmit"
+  >
+    <fieldset class="grid gap-6">
+      <label
+        :for="emailId"
+        class="grid gap-1"
       >
-        <UFormField
-          label="メールアドレス"
+        <span>メールアドレス</span>
+        <Input
+          :id="emailId"
           name="email"
           required
-          hint="必須"
-          description="例：frontend@example.com"
-        >
-          <UInput
-            class="w-[stretch]"
-            size="lg"
-            required
-            v-model="state.email"
-          />
-        </UFormField>
+          :invalid="Boolean(errors.email)"
+          autocomplete="email"
+          v-model="email"
+          v-bind="emailAttrs"
+        />
+        <p class="text-red-500">{{ errors.email }}</p>
+      </label>
 
-        <UFormField
-          label="パスワード"
+      <label
+        :for="passwordId"
+        class="grid gap-1"
+      >
+        <span>パスワード</span>
+        <Input
+          :id="passwordId"
           name="password"
           required
-          hint="必須"
-          description="半角英数字128文字以内で入力してください。"
-        >
-          <UInput
-            class="w-[stretch]"
-            size="lg"
-            type="password"
-            required
-            v-model="state.password"
-          />
-        </UFormField>
+          type="password"
+          :invalid="Boolean(errors.password)"
+          autocomplete="current-password"
+          v-model="password"
+          v-bind="passwordAttrs"
+        />
+        <p class="text-red-500">{{ errors.password }}</p>
+      </label>
+    </fieldset>
 
-        <UButton
-          type="submit"
-          size="lg"
-          class="w-[stretch] inline-flex justify-center align-center"
-        >
-          ログイン
-        </UButton>
-      </UForm>
-    </UPageCard>
-  </UPage>
+    <Button label="ログイン" />
+  </form>
+
+  <p
+    v-if="hasCompletedSubmit"
+    class="font-bold"
+  >
+    ログインに成功しました。
+  </p>
 </template>
