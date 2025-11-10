@@ -22,7 +22,7 @@
     "test": "pnpm run test:watch"
   },
   "dependencies": {
-    "@nuxt/ui": "^4.0.0",
+    "@nuxt/ui": "^4.1.0",
     "@unhead/vue": "^2.0.17",
     "@vee-validate/zod": "^4.15.1",
     "add": "^2.0.6",
